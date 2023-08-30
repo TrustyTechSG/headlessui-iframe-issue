@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^13.4.19",
+    "@vercel/kv": "^0.2.2",
     "autoprefixer": "^10.4.15",
     "babel-plugin-formatjs": "^10.5.3",
     "next": "13.4.19",
