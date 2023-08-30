@@ -18,26 +18,7 @@ export async function middleware(request) {
     return NextResponse.redirect(new URL(`/${"en"}/${pathname}${request.nextUrl.search}`, request.url));
   }
 
-  const response = NextResponse.next();
-  const language = headers.get("accept-language");
-  const { city, country, latitude, longitude, region } = geo || {};
-
-  response.cookies.set(
-    "device",
-    JSON.stringify({
-      ...(city && { city }),
-      ...(country && {
-        country,
-      }),
-      ...(latitude && { latitude }),
-      ...(longitude && { longitude }),
-      ...(region && { region }),
-      ...(ip && { ip }),
-      ...(language && { local: language.split(",")[0] || "en" }),
-    })
-  );
-
-  return response;
+  return NextResponse.next();
 }
 
 // See "Matching Paths" below to learn more
