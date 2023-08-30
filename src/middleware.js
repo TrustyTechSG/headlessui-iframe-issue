@@ -1,12 +1,11 @@
 // middleware.ts
-import { kv } from "@vercel/kv";
 import { NextResponse } from "next/server";
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request) {
   // Check if there is any supported locale in the pathname
   const pathname = request.nextUrl.pathname;
-  const languages = await kv.hget(request.nextUrl.hostname, "languages");
+  const languages = ["en"];
   const pathnameIsMissingLocale = (Array.isArray(languages) ? languages : ["en"]).some(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
