@@ -1,3 +1,3 @@
 export default function Page({ params }) {
-  return `SUBPAGE ${params.host}`;
+  return `Im a subpage of host: ${params.host}`;
 }
