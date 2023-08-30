@@ -1,15 +1,14 @@
 import Link from "next/link";
-import styles from "../../page.module.css";
 
 export default function Home({ params }) {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
+    <main>
+      <div>
         <p>
           Host:&nbsp;
-          <code className={styles.code}>{params.host}</code>
+          <code>{params.host}</code>
           &nbsp;&nbsp; Lang:&nbsp;
-          <code className={styles.code}>{params.lang}</code>
+          <code>{params.lang}</code>
         </p>
         <div>
           <Link href="/subpage">Subpage</Link>
