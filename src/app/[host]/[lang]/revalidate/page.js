@@ -18,7 +18,7 @@ export default async function Page({ params }) {
 
   return (
     <>
-      <h3>Last revalidate: {result}</h3>
+      <h3>Last revalidate time: {result}</h3>
       <br />
       <a href={`/api/revalidate?tag=${dataTag}`}>Revalidate tag</a>
       <br />
