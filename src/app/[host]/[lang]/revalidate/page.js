@@ -1,19 +1,13 @@
-import { kv } from "@vercel/kv";
 
 const dataTag = "lastRevalidate";
 
 export default async function Page({ params }) {
   const host = params.host;
-
-  await kv.hset(host, {
-    lastRevalidate: new Date().toISOString(),
-  });
-
   const response = await fetch(process.env.KV_REST_API_URL, {
     headers: {
       Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
     },
-    body: `["HGET", "${host}", "lastRevalidate"]`,
+    body: `["HGET", "${host}", "${dataTag}"]`,
     method: "POST",
     next: {
       tags: [dataTag],
